@@ -6,17 +6,31 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:37:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/18 15:13:18 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:01:44 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	*error_msg(void)
+void	setto_draw(t_px *px, int ac, char **av)
 {
-	printf("Parameter is invalid, please enter a valid set.");
-	printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n");
-	exit(0);
+	if (ft_strcmp("mandelbrot", av[1]) == 1 && ac == 2)
+		mandelbrot(px);
+	else if (ft_strcmp("burningship", av[1]) == 1 && ac == 2)
+		sterling(px);
+	else if (ft_strcmp("julia", av[1]) == 1 && ac == 2)
+		julia(px);
+	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '2' \
+		&& av[2][1] == '\0')
+		julia(px);
+	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '3' \
+		&& av[2][1] == '\0')
+		julia(px);
+	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '4' \
+		&& av[2][1] == '\0')
+		julia(px);
+	else
+		error_msg();
 }
 
 int	color(int key, t_px *p)
@@ -83,6 +97,8 @@ int	main(int ac, char **argv)
 {
 	t_px	*px;
 
+	if (ac == 1)
+		error_msg();
 	px = malloc(sizeof(t_px));
 	px->mlx_ptr = mlx_init();
 	px->win_ptr = mlx_new_window(px->mlx_ptr, 1000, 1000, "Fractol");

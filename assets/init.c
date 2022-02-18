@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:33:06 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/18 15:07:30 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:02:12 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,17 @@ void	initialize(t_px *p)
 	p->ctype = 1;
 }
 
-void	setto_draw(t_px *px, int ac, char **av)
-{
-	if (ac == 1)
-		error_msg();
-	if (ft_strcmp("mandelbrot", av[1]) == 1 && ac == 2)
-		mandelbrot(px);
-	else if (ft_strcmp("burningship", av[1]) == 1 && ac == 2)
-		sterling(px);
-	else if (ft_strcmp("julia", av[1]) == 1 && ac == 2)
-		julia(px);
-	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '2' && ac == 3)
-		julia(px);
-	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '3')
-		julia(px);
-	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '4')
-		julia(px);
-	else
-		error_msg();
-}
-
 int	close(t_px *p)
 {
 	mlx_destroy_window(p->mlx_ptr, p->win_ptr);
 	exit(0);
 	return (0);
+}
+
+void	error_msg(void)
+{
+	printf("Parameter is invalid, please enter a valid set.");
+	printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n \
+-burningship\n");
+	exit(0);
 }

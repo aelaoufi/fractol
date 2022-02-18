@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 17:36:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/17 20:08:52 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/18 18:00:14 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		julia(t_px *p);
 int		ft_strcmp(char	*set, char	*av);
 size_t	ft_strlen(char *str);
 void	setto_draw(t_px *px, int ac, char **av);
-void	*error_msg(void);
+void	error_msg(void);
 char	*ft_strdup(char *src);
 int		movement(int key, t_px *p);
 void	type(t_px *p);
