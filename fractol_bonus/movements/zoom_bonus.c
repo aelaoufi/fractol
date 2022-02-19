@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   zoom_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:31:17 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:00:26 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 14:07:42 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../fractol_bonus.h"
 
 void	type(t_px *p)
 {
 	if (p->type == 1)
 		mandelbrot(p);
+	else if (p->type == 6)
+		sterling(p);
 	else if (p->type == 2 || p->type == 3 || p->type == 4 || p->type == 5)
 		julia(p);
 }

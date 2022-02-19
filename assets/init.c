@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:33:06 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/18 18:02:12 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 14:19:12 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,9 @@ void	initialize(t_px *p)
 	p->ctype = 1;
 }
 
-int	close(t_px *p)
-{
-	mlx_destroy_window(p->mlx_ptr, p->win_ptr);
-	exit(0);
-	return (0);
-}
-
 void	error_msg(void)
 {
-	printf("Parameter is invalid, please enter a valid set.");
-	printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n \
--burningship\n");
+	ft_printf("Parameter is invalid, please enter a valid set.");
+	ft_printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n");
 	exit(0);
 }

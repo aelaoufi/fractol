@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:37:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 13:49:59 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 14:06:01 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 void	setto_draw(t_px *px, int ac, char **av)
 {
 	if (ft_strcmp("mandelbrot", av[1]) == 1 && ac == 2)
 		mandelbrot(px);
+	else if (ft_strcmp("burningship", av[1]) == 1 && ac == 2)
+		sterling(px);
 	else if (ft_strcmp("julia", av[1]) == 1 && ac == 2)
 		julia(px);
 	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '2' \
@@ -31,6 +33,25 @@ void	setto_draw(t_px *px, int ac, char **av)
 		error_msg();
 }
 
+int	color(int key, t_px *p)
+{
+	if (key == 12)
+	{
+		p->ctype += 1;
+		coloring(p);
+		mlx_clear_window(p->mlx_ptr, p->win_ptr);
+		type(p);
+	}
+	if (p->ctype > 8)
+	{
+		p->ctype = 1;
+		coloring(p);
+		mlx_clear_window(p->mlx_ptr, p->win_ptr);
+		type(p);
+	}
+	return (0);
+}
+
 int	pars(t_px *p, int ac, char **av)
 {
 	if (ft_strcmp("mandelbrot", av[1]) == 1 && ac == 2)
@@ -43,6 +64,8 @@ int	pars(t_px *p, int ac, char **av)
 		p->type = 4;
 	else if (ft_strcmp("julia", av[1]) == 1 && av[2][0] == '4')
 		p->type = 5;
+	else if (ft_strcmp("burningship", av[1]) == 1 && ac == 2)
+		p->type = 6;
 	return (0);
 }
 
@@ -82,12 +105,14 @@ int	main(int ac, char **argv)
 	px->img = mlx_new_image(px->mlx_ptr, 1000, 1000);
 	pars(px, ac, argv);
 	initialize(px);
+	coloring(px);
 	init_julia(px);
 	applyzoom(px);
 	setto_draw(px, ac, argv);
+	mlx_hook(px->win_ptr, 2, 0, color, (void *)px);
 	mlx_hook(px->win_ptr, 4, 0, zoom, (void *)px);
 	mlx_hook(px->win_ptr, 17, 0, close, (void *)px);
 	mlx_hook(px->win_ptr, 6, 0, mousepos, (void *)px);
-	mlx_key_hook(px->win_ptr, esc, (void *)px);
+	mlx_key_hook(px->win_ptr, movey, (void *)px);
 	mlx_loop(px->mlx_ptr);
 }

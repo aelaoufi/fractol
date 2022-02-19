@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 17:36:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:25:54 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 16:21:06 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 # define MAX_ITER 100
 
 # include "mlx.h"
@@ -19,7 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include "ft_printf/ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_px
 {
@@ -57,7 +57,7 @@ typedef struct s_px
 }				t_px;
 
 int		destr(t_px *p);
-int		esc(int key, t_px *p);
+int		destroy(int key, t_px *p);
 void	initialize(t_px *p);
 int		mousepos(int x, int y, t_px *p);
 void	applyzoom(t_px *e);
@@ -70,8 +70,13 @@ size_t	ft_strlen(char *str);
 void	setto_draw(t_px *px, int ac, char **av);
 void	error_msg(void);
 char	*ft_strdup(char *src);
+int		movement(int key, t_px *p);
 void	type(t_px *p);
+int		sterling(t_px *p);
 int		pars(t_px *p, int ac, char **av);
 void	init_julia(t_px *p);
+int		movey(int key, t_px *p);
+void	coloring(t_px *p);
+void	draw_ster(t_px *p);
 
 #endif

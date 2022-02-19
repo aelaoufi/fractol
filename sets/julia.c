@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:31:41 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/17 19:57:14 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:21:53 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	draw_jul(t_px *p)
 {
 	if (p->iter <= MAX_ITER)
 		p->buffer[(p->row * p->line_bytes) + p->col] \
-			= p->color * p->iter;
+			= 0XFFFFFF * p->iter;
 }
 
 void	calculs_julia(t_px *p)
@@ -27,9 +27,9 @@ void	calculs_julia(t_px *p)
 		while (p->col < p->width)
 		{
 			p->real = p->col / (p->width / (p->re_max - p->re_min)) \
-				+ p->re_min + p->movex;
+				+ p->re_min;
 			p->imgn = p->row / (p->height / (p->im_max - p->im_min)) \
-				+ p->im_min + p->movey;
+				+ p->im_min;
 			p->x = p->real;
 			p->y = p->imgn;
 			p->iter = 0;

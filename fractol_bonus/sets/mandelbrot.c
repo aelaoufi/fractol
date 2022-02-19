@@ -6,17 +6,17 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:29:04 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 13:22:00 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 13:38:19 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../fractol_bonus.h"
 
 void	draw_man(t_px *p)
 {
 	if (p->iter <= MAX_ITER)
 		p->buffer[(p->row * p->line_bytes) + p->col] \
-			= 0XFFFFFF * p->iter;
+			= p->color * p->iter;
 }
 
 void	calculs_mandelbrot(t_px *p)
@@ -27,9 +27,9 @@ void	calculs_mandelbrot(t_px *p)
 		while (p->col < p->width)
 		{
 			p->real = p->col / (p->width / (p->re_max - p->re_min)) \
-				+ p->re_min;
+				+ p->re_min + p->movex;
 			p->imgn = p->row / (p->height / (p->im_max - p->im_min)) \
-				+ p->im_min;
+				+ p->im_min + p->movey;
 			p->x = 0;
 			p->y = 0;
 			p->iter = 0;
