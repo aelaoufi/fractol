@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:33:06 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:19:12 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/19 16:42:55 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	initialize(t_px *p)
 void	error_msg(void)
 {
 	ft_printf("Parameter is invalid, please enter a valid set.");
-	ft_printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n");
+	ft_printf("\n -mandelbrot\n -julia\n -julia 2\n -julia 3\n -julia 4\n \
+-burningship\n");
 	exit(0);
 }

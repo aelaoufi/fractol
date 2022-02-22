@@ -6,11 +6,17 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:31:12 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:05:09 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:01:05 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol_bonus.h"
+
+int	destr(t_px *p)
+{
+	mlx_destroy_window(p->mlx_ptr, p->win_ptr);
+	exit(0);
+}
 
 int	destroy(int key, t_px *p)
 {

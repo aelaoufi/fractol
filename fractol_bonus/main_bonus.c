@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:37:01 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:06:01 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/22 14:01:16 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	main(int ac, char **argv)
 	setto_draw(px, ac, argv);
 	mlx_hook(px->win_ptr, 2, 0, color, (void *)px);
 	mlx_hook(px->win_ptr, 4, 0, zoom, (void *)px);
-	mlx_hook(px->win_ptr, 17, 0, close, (void *)px);
+	mlx_hook(px->win_ptr, 17, 0, destr, (void *)px);
 	mlx_hook(px->win_ptr, 6, 0, mousepos, (void *)px);
 	mlx_key_hook(px->win_ptr, movey, (void *)px);
 	mlx_loop(px->mlx_ptr);

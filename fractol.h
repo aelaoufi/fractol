@@ -6,7 +6,7 @@
 /*   By: aelaoufi <aelaoufi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 17:36:56 by aelaoufi          #+#    #+#             */
-/*   Updated: 2022/02/19 14:25:54 by aelaoufi         ###   ########.fr       */
+/*   Updated: 2022/02/20 18:00:34 by aelaoufi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 
 # include "mlx.h"
 # include <math.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include "ft_printf/ft_printf.h"
 
 typedef struct s_px
